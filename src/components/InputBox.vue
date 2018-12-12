@@ -44,6 +44,9 @@ const lastSpliter = [' ', ','];
 
 export default {
   name: 'InputBox',
+  model: {
+    event: 'change'
+  },
   props: {
     filter: {
       type: String,
@@ -53,7 +56,7 @@ export default {
       type: Number,
       default: Infinity,
     },
-    store: {
+    value: {
       type: Array,
       default: () => [],
     },
@@ -72,10 +75,12 @@ export default {
       inputWidth: 0,
       cursor: -1,
       isAlert: false,
+      store: [],
     };
   },
   mounted() {
     console.log(this);
+    this.store.push(...this.value);
     setTimeout(() => this.setInputSize());
   },
   methods: {
@@ -103,7 +108,7 @@ export default {
       } else {
         if (this.cursor !== -1) this.returnInput();
       }
-        console.log('this.cursor !== -1', this.cursor !== -1, this.cursor)
+        // console.log('this.cursor !== -1', this.cursor !== -1, this.cursor)
       if (this.cursor !== -1) { 
         e.preventDefault();
       }
@@ -144,7 +149,10 @@ export default {
       if (!targetChar) { // 박싱문자 없이 박싱 (blur 이벤트 등)
         this.addStore({ value: this.inputValue }, this.cursor);
       }
-      if (this.cursor !== -1) this.returnInput(); 
+      if (this.cursor !== -1) this.returnInput();
+      
+      this.$emit('change', this.store);
+      
       e.preventDefault();
     },
     addStore(v, i) { // 저장소에 데이터 저장
@@ -168,6 +176,7 @@ export default {
       // console.log('remove');
       this.store.splice(i, 1);
       setTimeout(() => this.$refs['input'].focus());
+      this.$emit('change', this.store);
     },
     moveInput(i) { // 데이터 수정시 해당 위치로 input 이동
       // console.log('moveInput');

@@ -1,5 +1,7 @@
 # vue-input-box
 
+Input Box Component inspired by Gmail email address input
+
 ## Project setup
 ```
 yarn install

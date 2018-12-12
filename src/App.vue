@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <input-box :store="list" filter="^[\w-]*$" placeholder="Add Item" />
+    <input-box v-model="list" filter="^[\w-]*$" placeholder="Add Item" />
   </div>
 </template>
 
@@ -9,6 +9,9 @@ import InputBox from "./components/InputBox.vue";
 
 export default {
   name: 'app',
+  created() {
+    console.log(this);
+  },
   data() {
     return {
       list: [

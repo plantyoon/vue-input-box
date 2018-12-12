@@ -1,13 +1,13 @@
 {
   "name": "vue-input-box",
-  "version": "0.1.0",
+  "version": "0.1.12",
   "description": "Input Box Component inspired by Gmail email address input.",
-  "main": "./dist/vueInputBox.common.js",
-  "unpkg": "./dist/vueInputBox.umd.min.js",
+  "main": "./dist/InputBox.common.js",
+  "unpkg": "./dist/InputBox.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-bundle": "vue-cli-service build --target lib --name vueInputBox ./src/components/index.js"
+    "build-bundle": "vue-cli-service build --target lib --name InputBox ./src/components/index.js"
   },
   "repository": {
     "type": "git",
