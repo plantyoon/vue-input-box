@@ -2,27 +2,21 @@
 
 Input Box Component inspired by Gmail email address input
 
-## Project setup
+## Install
 ```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn run serve
+npm install vue-input-box
+yarn add vue-input-box
 ```
 
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
+## Use
+```html
+  <input-box v-model="['item-1', 'item-2', 'item-3'].map(item => ({ value: item }))" filter="^[\w-]*$" placeholder="Add Item" />
 ```
 
-### Lints and fixes files
-```
-yarn run lint
-```
+## Props
+|Name|Type|default|Description|
+|----|:----:|:----:|:----:|
+|value|Array|[]|Default box settings. Must be an array of type {value: String}|
+|filter|String|''|Filter for input values.|
+|placeholder|String|''|Placeholder exposed when input is blank.|
+|alert|String|''|Notification message when you enter a value that does not match filter.|

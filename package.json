@@ -1,6 +1,6 @@
 {
   "name": "vue-input-box",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Input Box Component inspired by Gmail email address input.",
   "main": "./dist/InputBox.common.js",
   "unpkg": "./dist/InputBox.umd.min.js",
